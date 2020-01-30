@@ -1,0 +1,7 @@
+CLASE 01
+----------------------------------------------
+1.- Repositorio en GitHub.
+2.- Introducción a Base de Datos
+3.- Introducción a Oracle
+4.- El esquema de Trabajo: EUREKA
+5.- 
