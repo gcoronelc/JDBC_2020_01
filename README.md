@@ -1,19 +1,61 @@
-![Java CLIENTE-SERVIDOR](https://raw.githubusercontent.com/gcoronelc/SISTUNI_JAVA_JDBC_004/master/JavaCS004.png)
+![Java CLIENTE-SERVIDOR](https://raw.githubusercontent.com/gcoronelc/JDBC_2020_01/master/img/jdbc.png)
 
 # DESARROLLADOR DE APLICACIONES DE ESCRITORIO
 
 - Lugar: SistemasUNI
-- Horario: SABADOS de 3 pm a 9 pm
-- Inicio: 28-MAYO-2016
+- Horario: MARTES y JUEVES DE 8 a 14 Horas
+- Inicio: 30-ENERO-2019
+- Duración: 24 Horas
 - Dirección: https://goo.gl/maps/98vwAt9NZMU2
-- Contenido: http://www.sistemasuni.edu.pe/dcursos/javaescritorio.html
-- Página: http://gcoronelc.github.io/SISTUNI_JAVA_JDBC_004/
+- Youtube: https://www.youtube.com/watch?v=EKlwF12-l9Y&list=PLIRq7nByT7aRuBgD4UVRjrcUZFM8Fkbut
+- Página: http://gcoronelc.blogspot.com/p/java.html
+- Código fuente: https://goo.gl/GRaOQg
+- Grupo de WS: https://chat.whatsapp.com/H6BBebNDZHEAqAk6gTU5ZS
 
 # DOCENTE
 
 - Docente: Eric Gustavo Coronel Castillo
 - Blog: www.desarrollasoftware.com
-- Correo: gcoronelc@gmail.com
+- Correo del curso: egcc.uni@gmail.com
+- Canal Youtube: https://www.youtube.com/c/DesarrollaSoftware
+- UDEMY: https://github.com/gcoronelc/UDEMY
+
+# YUTUBE
+
+- JAVA OO: https://bit.ly/2FCowSU
+- JDBC: https://bit.ly/2TaHisH
+- PL/SQL: https://bit.ly/2uvE9cF
+- C++: https://bit.ly/2R4nZP2
+- ORCLE: https://bit.ly/2QZIBbf
+- JAVA WEB CON ORACLE: https://bit.ly/36D6njZ
+- WS SOAP EJEMPLO 1: https://bit.ly/2Rd7osH
+- WS SOAP EJEMPLO 2: https://bit.ly/39PalrT
+
+# CURSOS VIRTUALES
+
+## CUPONES UDEMY
+
+- Enlace: https://github.com/gcoronelc/UDEMY
+
+## ORACLE PL/SQL
+
+- Enlace: https://www.udemy.com/course/lenguaje-plsql/?referralCode=3B8A67CA0AADFCFB930C
+
+[![ORACLE PL/SQL](https://raw.githubusercontent.com/gcoronelc/UDEMY/master/cursos/plsql.png)](https://youtu.be/qf5IF2dJtQc "ORACLE PL/SQL")
+
+# JAVA ORIENTADO A OBJETOS
+
+- Enlace: https://www.udemy.com/course/java-orientado-a-objetos/?referralCode=ED949D58C79D27158E8D
+
+[![JAVA ORIENTADO A OBJETOS](https://raw.githubusercontent.com/gcoronelc/UDEMY/master/cursos/joo.png)](http://www.youtube.com/watch?v=EKlwF12-l9Y "JAVA ORIENTADO A OBJETOS")
+
+# PROGRAMACIÓN DE BASE DE DATOS ORACLE CON JAVA JDBC
+
+- Enlace: https://www.udemy.com/course/java-jdbc-oracle/?referralCode=C518C8D3028403F7F6DF
+
+[![JAVA JDBC CON BASE DE DATOS ORACLE](https://raw.githubusercontent.com/gcoronelc/UDEMY/master/cursos/jdbc.png)](http://www.youtube.com/watch?v=MR53Xgeg28Y "JAVA JDBC CON BASE DE DATOS ORACLE")
+
+
 
 # RECURSOS RECOMENDADOS
 
@@ -32,24 +74,6 @@
 - RichFaces is Dead: https://youtu.be/o7t3ABfWYLo
 - ¿Eres un recurso estratégico?: https://youtu.be/knZxhVck2mk
 
-# CLASE 01 
 
-- Fecha: 28-MAYO-2016
-- Revisado Git y GitHub
-- Instalar Oracle
-- Revisar conceptos de Oracle
-- Creación de esquema
-- Conexión remota
 
-# CLASE 02
 
-- Fecha: 11-JUN-2016
-- Crear esquema Eureka
-- API JDBC
-- Registrando el driver en NetBeans
-- Conexión NetBeans - Oracle
-- Crear clase AccesoDB.java
-- Probar conexión
-- Ejecutar sentencias sin parámetros con Statement
-- Probar el SQL Injection
-- Ejecutar sentencias con parametros con PreparedStatement
