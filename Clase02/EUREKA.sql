@@ -39,5 +39,65 @@ end;
 
 
 
+CREATE OR REPLACE PROCEDURE EUREKA.SP_SUMA(
+    P_N1 IN NUMBER,
+    P_N2 IN NUMBER,
+    P_SUMA OUT NUMBER
+)
+IS
+BEGIN
+    P_SUMA :=  P_N1 + P_N2;
+END;
+/
+
+
+select dec_cuensaldo 
+from eureka.cuenta
+where chr_cuencodigo = '00100001';
+
+
+create or replace procedure eureka.get_saldo
+(
+    p_cuenta in varchar2,
+    p_saldo out number
+)
+is
+begin
+    select dec_cuensaldo into p_saldo
+    from eureka.cuenta
+    where chr_cuencodigo = p_cuenta;
+end;
+/
+
+
+select INT_MOVINUMERO, to_char(dtt_movifecha,'DD/MM/YYYY') fecha,
+chr_tipocodigo, dec_moviimporte
+from eureka.movimiento
+where chr_cuencodigo = '00100001';
+
+
+CREATE OR REPLACE PROCEDURE EUREKA.GET_MOVIMIENTO
+(
+    P_CUENTA IN VARCHAR2,
+    P_CURSOR OUT NOCOPY SYS_REFCURSOR
+)
+IS
+BEGIN
+    OPEN P_CURSOR FOR
+    select INT_MOVINUMERO, to_char(dtt_movifecha,'DD/MM/YYYY') fecha,
+    chr_tipocodigo, dec_moviimporte
+    from eureka.movimiento
+    where chr_cuencodigo = P_CUENTA;
+END;
+/
+
+
+VARIABLE rc REFCURSOR
+
+EXECUTE EUREKA.GET_MOVIMIENTO('00100002', :RC );
+
+PRINT rc
+
+
 
 
