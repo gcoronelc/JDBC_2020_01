@@ -29,7 +29,7 @@ public class FormMain extends javax.swing.JFrame {
 		String titulo = "EUREKA APP";
 		EmpleadoModel model;
 		model = (EmpleadoModel) Session.get("USUARIO");
-		titulo += " ( Usuario:" + model.getUsuario() + ") ";
+		titulo += " ( Usuario:" + model.getUsuario() + " ) ";
 		this.setTitle(titulo);
 	}
 
