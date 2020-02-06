@@ -2,6 +2,7 @@ package pe.uni.eurekaapp.controller;
 
 import pe.uni.eurekaapp.model.EmpleadoModel;
 import pe.uni.eurekaapp.service.LogonService;
+import pe.uni.eurekaapp.util.Session;
 
 /**
  *
@@ -11,9 +12,10 @@ import pe.uni.eurekaapp.service.LogonService;
  */
 public class LogonController {
 
-	public EmpleadoModel validar(String usuario, String clave) {
+	public void validar(String usuario, String clave) {
 		LogonService service = new LogonService();
-		return service.validar(usuario, clave);
+		EmpleadoModel model = service.validar(usuario, clave);
+		Session.put("USUARIO", model);
 	}
 
 }

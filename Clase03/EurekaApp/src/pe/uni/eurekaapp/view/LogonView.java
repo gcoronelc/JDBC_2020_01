@@ -8,6 +8,7 @@ package pe.uni.eurekaapp.view;
 import javax.swing.JOptionPane;
 import pe.uni.eurekaapp.controller.LogonController;
 import pe.uni.eurekaapp.model.EmpleadoModel;
+import pe.uni.eurekaapp.util.Mensaje;
 
 /**
  *
@@ -158,12 +159,11 @@ public class LogonView extends javax.swing.JDialog {
 			String clave = String.valueOf( txtClave.getPassword() );
 			// Proceso
 			LogonController controller = new LogonController();
-			EmpleadoModel model = controller.validar(usuario,clave);
-			JOptionPane.showMessageDialog
-					(rootPane, "Hola " + model.getNombre());
-			
+			controller.validar(usuario,clave);
+			FormMain.main(null);
+			this.dispose();
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(rootPane, e.getMessage());
+			Mensaje.showError(rootPane, e.getMessage());
 		}
   }//GEN-LAST:event_btnIngresarActionPerformed
 
