@@ -1,19 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pe.uni.eurekaapp.view;
 
-/**
- *
- * @author Alumno
- */
+import java.util.List;
+import java.util.Map;
+import javax.swing.table.DefaultTableModel;
+import pe.uni.eurekaapp.controller.CuentaController;
+import pe.uni.eurekaapp.util.Mensaje;
+
 public class ConMovimientosView extends javax.swing.JInternalFrame {
 
-	/**
-	 * Creates new form ConMovimientosView
-	 */
+	// Lista de movimientos
+	private List<Map<String, ?>> lista = null;
+
 	public ConMovimientosView() {
 		initComponents();
 	}
@@ -27,14 +24,14 @@ public class ConMovimientosView extends javax.swing.JInternalFrame {
 
     jPanel1 = new javax.swing.JPanel();
     jLabel1 = new javax.swing.JLabel();
-    jTextField1 = new javax.swing.JTextField();
+    txtCuenta = new javax.swing.JTextField();
     btnBuscar = new javax.swing.JButton();
     btnExcel = new javax.swing.JButton();
     btnCSV = new javax.swing.JButton();
     btnPDF = new javax.swing.JButton();
     jPanel2 = new javax.swing.JPanel();
     jScrollPane1 = new javax.swing.JScrollPane();
-    jTable1 = new javax.swing.JTable();
+    tblRepo = new javax.swing.JTable();
 
     setClosable(true);
     setMaximizable(true);
@@ -46,10 +43,15 @@ public class ConMovimientosView extends javax.swing.JInternalFrame {
     jLabel1.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
     jLabel1.setText("Cuenta:");
 
-    jTextField1.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+    txtCuenta.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
 
     btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pe/uni/eurekaapp/img/buscar.png"))); // NOI18N
     btnBuscar.setToolTipText("Buscar movimientos.");
+    btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnBuscarActionPerformed(evt);
+      }
+    });
 
     btnExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pe/uni/eurekaapp/img/excel.png"))); // NOI18N
     btnExcel.setToolTipText("Exportar a Excel.");
@@ -71,7 +73,7 @@ public class ConMovimientosView extends javax.swing.JInternalFrame {
         .addContainerGap()
         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addComponent(txtCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
         .addComponent(btnBuscar)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -88,7 +90,7 @@ public class ConMovimientosView extends javax.swing.JInternalFrame {
         .addContainerGap()
         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-          .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(txtCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(btnExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(btnCSV, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -98,7 +100,7 @@ public class ConMovimientosView extends javax.swing.JInternalFrame {
 
     jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "REPORTE", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Arial", 1, 18), new java.awt.Color(0, 0, 153))); // NOI18N
 
-    jTable1.setModel(new javax.swing.table.DefaultTableModel(
+    tblRepo.setModel(new javax.swing.table.DefaultTableModel(
       new Object [][] {
         {null, null, null, null, null},
         {null, null, null, null, null},
@@ -124,13 +126,13 @@ public class ConMovimientosView extends javax.swing.JInternalFrame {
         return canEdit [columnIndex];
       }
     });
-    jScrollPane1.setViewportView(jTable1);
-    if (jTable1.getColumnModel().getColumnCount() > 0) {
-      jTable1.getColumnModel().getColumn(0).setResizable(false);
-      jTable1.getColumnModel().getColumn(1).setResizable(false);
-      jTable1.getColumnModel().getColumn(2).setResizable(false);
-      jTable1.getColumnModel().getColumn(3).setResizable(false);
-      jTable1.getColumnModel().getColumn(4).setResizable(false);
+    jScrollPane1.setViewportView(tblRepo);
+    if (tblRepo.getColumnModel().getColumnCount() > 0) {
+      tblRepo.getColumnModel().getColumn(0).setResizable(false);
+      tblRepo.getColumnModel().getColumn(1).setResizable(false);
+      tblRepo.getColumnModel().getColumn(2).setResizable(false);
+      tblRepo.getColumnModel().getColumn(3).setResizable(false);
+      tblRepo.getColumnModel().getColumn(4).setResizable(false);
     }
 
     javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -168,6 +170,45 @@ public class ConMovimientosView extends javax.swing.JInternalFrame {
     pack();
   }// </editor-fold>//GEN-END:initComponents
 
+  private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+		// Previo
+		btnBuscar.setEnabled(false);
+		btnExcel.setEnabled(false);
+		btnCSV.setEnabled(false);
+		btnPDF.setEnabled(false);
+		// Proceso
+		try {
+			// Datos
+			String cuenta = txtCuenta.getText();
+			// La consulta
+			CuentaController control = new CuentaController();
+			lista = control.traerMovimientos(cuenta);
+			// Reporte
+			DefaultTableModel tabla;
+			tabla = (DefaultTableModel) tblRepo.getModel();
+			tabla.setRowCount(0);
+			for (Map<String, ?> map : lista) {
+				Object[] rowData = {
+					map.get("CUENTA"),
+					map.get("MOVIMIENTO"),
+					map.get("FECHA"),
+					map.get("TIPO"),
+					map.get("IMPORTE")
+				};
+				tabla.addRow(rowData);
+			}
+		} catch (Exception e) {
+			Mensaje.showError(rootPane, e.getMessage());
+		} finally {
+			btnBuscar.setEnabled(true);
+			if (lista != null && lista.size() > 0) {
+				btnExcel.setEnabled(true);
+				btnCSV.setEnabled(true);
+				btnPDF.setEnabled(true);
+			}
+		}
+  }//GEN-LAST:event_btnBuscarActionPerformed
+
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton btnBuscar;
@@ -178,7 +219,7 @@ public class ConMovimientosView extends javax.swing.JInternalFrame {
   private javax.swing.JPanel jPanel1;
   private javax.swing.JPanel jPanel2;
   private javax.swing.JScrollPane jScrollPane1;
-  private javax.swing.JTable jTable1;
-  private javax.swing.JTextField jTextField1;
+  private javax.swing.JTable tblRepo;
+  private javax.swing.JTextField txtCuenta;
   // End of variables declaration//GEN-END:variables
 }

@@ -26,6 +26,13 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Proceso"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="menuProcesoDeposito">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Dep&#xf3;sito"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuTabla">
           <Properties>

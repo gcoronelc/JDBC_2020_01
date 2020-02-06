@@ -46,6 +46,7 @@ public class FormMain extends javax.swing.JFrame {
     menuArchivo = new javax.swing.JMenu();
     menuArchivoSalir = new javax.swing.JMenuItem();
     menuProceso = new javax.swing.JMenu();
+    menuProcesoDeposito = new javax.swing.JMenuItem();
     menuTabla = new javax.swing.JMenu();
     menuConsulta = new javax.swing.JMenu();
     menuConsultaMovimientos = new javax.swing.JMenuItem();
@@ -67,6 +68,10 @@ public class FormMain extends javax.swing.JFrame {
     menuBar.add(menuArchivo);
 
     menuProceso.setText("Proceso");
+
+    menuProcesoDeposito.setText("Depósito");
+    menuProceso.add(menuProcesoDeposito);
+
     menuBar.add(menuProceso);
 
     menuTabla.setText("Tabla");
@@ -154,6 +159,7 @@ public class FormMain extends javax.swing.JFrame {
   private javax.swing.JMenu menuConsulta;
   private javax.swing.JMenuItem menuConsultaMovimientos;
   private javax.swing.JMenu menuProceso;
+  private javax.swing.JMenuItem menuProcesoDeposito;
   private javax.swing.JMenu menuReporte;
   private javax.swing.JMenu menuTabla;
   // End of variables declaration//GEN-END:variables
