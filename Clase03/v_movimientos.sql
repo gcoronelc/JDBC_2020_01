@@ -85,9 +85,28 @@ where CUENCODIGO = '00100001'
 order by MOVINUMERO;
 
 
+select dec_cuensaldo, INT_CUENCONTMOV
+from eureka.cuenta
+where chr_cuencodigo = '00100001';
+
+update eureka.cuenta
+set dec_cuensaldo = ?,
+INT_CUENCONTMOV = ?
+where chr_cuencodigo = ? ;
+
+select * from eureka.MOVIMIENTO;
+
+insert into eureka.movimiento(chr_cuencodigo,int_movinumero,
+dtt_movifecha,chr_emplcodigo,chr_tipocodigo,dec_moviimporte)
+values(?,?,?,?,?,?);
+
+SELECT SYSDATE FROM DUAL;
+
+SELECT * FROM EUREKA.TIPOMOVIMIENTO;
+
+select * from eureka.empleado;
 
 
-
-
-
+select * from eureka.cuenta where chr_cuencodigo='00100002';
+select * from eureka.movimiento where chr_cuencodigo='00100002';
 
