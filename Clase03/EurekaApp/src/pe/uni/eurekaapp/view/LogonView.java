@@ -52,8 +52,12 @@ public class LogonView extends javax.swing.JDialog {
     jLabel2.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
     jLabel2.setText("Usuario:");
 
+    txtUsuario.setText("lcastro");
+
     jLabel3.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
     jLabel3.setText("Clave");
+
+    txtClave.setText("suerte");
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
