@@ -5,6 +5,7 @@
  */
 package pe.uni.eurekaapp.view;
 
+import javax.swing.JInternalFrame;
 import pe.uni.eurekaapp.model.EmpleadoModel;
 import pe.uni.eurekaapp.util.Session;
 
@@ -47,6 +48,7 @@ public class FormMain extends javax.swing.JFrame {
     menuProceso = new javax.swing.JMenu();
     menuTabla = new javax.swing.JMenu();
     menuConsulta = new javax.swing.JMenu();
+    menuConsultaMovimientos = new javax.swing.JMenuItem();
     menuReporte = new javax.swing.JMenu();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -71,6 +73,15 @@ public class FormMain extends javax.swing.JFrame {
     menuBar.add(menuTabla);
 
     menuConsulta.setText("Consulta");
+
+    menuConsultaMovimientos.setText("Movimientos");
+    menuConsultaMovimientos.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        menuConsultaMovimientosActionPerformed(evt);
+      }
+    });
+    menuConsulta.add(menuConsultaMovimientos);
+
     menuBar.add(menuConsulta);
 
     menuReporte.setText("Reporte");
@@ -95,6 +106,10 @@ public class FormMain extends javax.swing.JFrame {
   private void menuArchivoSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuArchivoSalirActionPerformed
      System.exit(0);
   }//GEN-LAST:event_menuArchivoSalirActionPerformed
+
+  private void menuConsultaMovimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuConsultaMovimientosActionPerformed
+		cargarFormulario(ConMovimientosView.class);
+  }//GEN-LAST:event_menuConsultaMovimientosActionPerformed
 
 	/**
 	 * @param args the command line arguments
@@ -137,9 +152,34 @@ public class FormMain extends javax.swing.JFrame {
   private javax.swing.JMenuItem menuArchivoSalir;
   private javax.swing.JMenuBar menuBar;
   private javax.swing.JMenu menuConsulta;
+  private javax.swing.JMenuItem menuConsultaMovimientos;
   private javax.swing.JMenu menuProceso;
   private javax.swing.JMenu menuReporte;
   private javax.swing.JMenu menuTabla;
   // End of variables declaration//GEN-END:variables
 
+	private void cargarFormulario(Class<?> aClass) {
+    try {
+      // Buscar una instancia
+      JInternalFrame view = null;
+      for (JInternalFrame frame : desktopPane.getAllFrames()) {
+        if (aClass.isInstance(frame)) {
+          view = frame;
+          break;
+        }
+      }
+      // Crear la instancia
+      if (view == null) {
+        view = (JInternalFrame) Class.forName(aClass.getName()).newInstance();
+        desktopPane.add(view);
+      }
+      // Hacerlo visible
+      view.setVisible(true);
+      view.setSelected(true);
+      view.setMaximum(true);
+    } catch (Exception e) {
+    }
+
+  }
+	
 }
