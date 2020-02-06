@@ -20,7 +20,7 @@ public class CuentaService {
 
 	public List<Map<String, ?>> getMovimientos(String cuenta) {
 		// Variables
-		List<Map<String, ?>> lista = new ArrayList<>();
+		List<Map<String, ?>> lista = null;
 		Connection cn = null;
 		// Proceso
 		try {
@@ -36,6 +36,8 @@ public class CuentaService {
 			PreparedStatement pstm = cn.prepareStatement(sql);
 			pstm.setString(1, cuenta);
 			ResultSet rs = pstm.executeQuery();
+			lista = JdbcUtil.rsToList(rs);
+			/*
 			while (rs.next()) {
 				Map<String, Object> rec = new HashMap<>();
 				rec.put("CUENTA", rs.getString("CUENTA"));
@@ -45,6 +47,7 @@ public class CuentaService {
 				rec.put("IMPORTE", rs.getDouble("IMPORTE"));
 				lista.add(rec);
 			}
+			*/
 			rs.close();
 			pstm.close();
 		} catch (SQLException e) {
