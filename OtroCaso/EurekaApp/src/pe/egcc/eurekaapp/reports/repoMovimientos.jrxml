@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="repoMovimientos" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d67cb163-25ac-410b-8851-9291a6f0e2f9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="CUENTA" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select
+cuencodigo,
+monenombre,
+cuensaldo,
+cuenestado,
+movinumero,
+movifecha,
+moviimporte,
+tipocodigo,
+tiponombre
+from v_movimiento
+WHERE cuencodigo = $P{CUENTA}]]>
+	</queryString>
+	<field name="CUENCODIGO" class="java.lang.String"/>
+	<field name="MONENOMBRE" class="java.lang.String"/>
+	<field name="CUENSALDO" class="java.math.BigDecimal"/>
+	<field name="CUENESTADO" class="java.lang.String"/>
+	<field name="MOVINUMERO" class="java.math.BigDecimal"/>
+	<field name="MOVIFECHA" class="java.sql.Timestamp"/>
+	<field name="MOVIIMPORTE" class="java.math.BigDecimal"/>
+	<field name="TIPOCODIGO" class="java.lang.String"/>
+	<field name="TIPONOMBRE" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="112" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="43" forecolor="#FFFFFF" backcolor="#003366" uuid="1f93fbd8-4516-4980-8267-8f5d1c52a3de"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE MOVIMIENTOS]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="95" y="57" width="100" height="20" uuid="42a5b3cb-67ae-4322-9553-257c31565002"/>
+				<textFieldExpression><![CDATA[$F{CUENCODIGO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="95" y="77" width="100" height="20" uuid="33dd5c67-5923-483a-b97d-137552ed90de"/>
+				<textFieldExpression><![CDATA[$F{CUENESTADO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="338" y="57" width="100" height="20" uuid="9520cfbe-2d7a-4bb4-bc68-a16f4b877b31"/>
+				<textFieldExpression><![CDATA[$F{MONENOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="338" y="77" width="100" height="20" uuid="68c5509b-2ae9-45e9-a0a2-d46766608622"/>
+				<textFieldExpression><![CDATA[$F{CUENSALDO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="31" y="57" width="64" height="20" uuid="916310aa-cc04-4e0d-9134-67e8dae3a1dd"/>
+				<text><![CDATA[Cuenta:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="31" y="77" width="64" height="20" uuid="43d622df-a061-4881-b07f-70d2243e05d6"/>
+				<text><![CDATA[Estado:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="274" y="57" width="64" height="20" uuid="6fb131c6-2db6-4c27-88eb-e98b3d4cc824"/>
+				<text><![CDATA[Noneda:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="274" y="77" width="64" height="20" uuid="74bdce04-3abb-4244-9738-0350485334c2"/>
+				<text><![CDATA[Saldo:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="34" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="111" height="20" uuid="1f2024dc-8b27-44b1-9c03-32724b4733e9"/>
+				<text><![CDATA[MOVINUMERO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="111" y="0" width="111" height="20" uuid="fef5944e-4e2e-4664-90c6-dc72f6c42158"/>
+				<text><![CDATA[MOVIFECHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="222" y="0" width="111" height="20" uuid="08835b58-92ea-4766-85df-bb455e1e5dcb"/>
+				<text><![CDATA[TIPOCODIGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="333" y="0" width="111" height="20" uuid="eab871be-d39b-4bd4-a70c-e5b45250496a"/>
+				<text><![CDATA[TIPONOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="444" y="0" width="111" height="20" uuid="7b19e13c-62d5-45b0-8e0c-41f51848d5e5"/>
+				<text><![CDATA[MOVIIMPORTE]]></text>
+			</staticText>
+			<line>
+				<reportElement x="3" y="25" width="550" height="1" uuid="69fe906f-74fc-4b02-9e92-0858957a251d"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="111" height="20" uuid="c910701c-3724-4212-b6e2-df1c37d9cc63"/>
+				<textFieldExpression><![CDATA[$F{MOVINUMERO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="111" y="0" width="111" height="20" uuid="27c756cf-d23c-496c-935e-af0d93b7dc32"/>
+				<textFieldExpression><![CDATA[$F{MOVIFECHA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="222" y="0" width="111" height="20" uuid="f2ddf86f-4980-48ff-920c-9597eb6838ee"/>
+				<textFieldExpression><![CDATA[$F{TIPOCODIGO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="333" y="0" width="111" height="20" uuid="e1fc787c-b8a7-4b94-82ca-4aeca6aa135a"/>
+				<textFieldExpression><![CDATA[$F{TIPONOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="444" y="0" width="111" height="20" uuid="12d4a95d-4ac3-4f00-b9a1-1d64a4b23cd4"/>
+				<textFieldExpression><![CDATA[$F{MOVIIMPORTE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="15" splitType="Stretch">
+			<line>
+				<reportElement x="3" y="6" width="550" height="1" uuid="304a89d6-ffe4-4494-98c6-d1a478e80314"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
