@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="librerias/javax.mail-1.5.4.jar"/>
+	<classpathentry kind="lib" path="librerias/AbsoluteLayout.jar"/>
+	<classpathentry kind="lib" path="librerias/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="librerias/commons-digester-2.1.jar"/>
+	<classpathentry kind="lib" path="librerias/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="librerias/itext-pdfa-5.5.4.jar"/>
+	<classpathentry kind="lib" path="librerias/itextpdf-5.5.4.jar"/>
+	<classpathentry kind="lib" path="librerias/jasperreports-6.0.0.jar"/>
+	<classpathentry kind="lib" path="librerias/jasperreports-fonts-6.10.0.jar"/>
+	<classpathentry kind="lib" path="librerias/mail.jar"/>
+	<classpathentry kind="lib" path="librerias/jxl-2.6.jar"/>
+	<classpathentry kind="lib" path="librerias/jcommon-1.0.23.jar"/>
+	<classpathentry kind="lib" path="librerias/jfreechart-1.0.19.jar"/>
+	<classpathentry kind="lib" path="librerias/softsmithy-lib-awt-2.0.jar"/>
+	<classpathentry kind="lib" path="librerias/slf4j-api-1.7.6.jar"/>
+	<classpathentry kind="lib" path="librerias/softsmithy-lib-core-2.0.jar"/>
+	<classpathentry kind="lib" path="librerias/edisoncorSX.jar"/>
+	<classpathentry kind="lib" path="librerias/jgoodies-forms-1.8.0.jar"/>
+	<classpathentry kind="lib" path="E:/Users/Alumno/Desktop/Sistema de Ventas/librerias/sqljdbc4.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

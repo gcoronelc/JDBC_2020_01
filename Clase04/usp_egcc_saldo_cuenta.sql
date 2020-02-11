@@ -7,7 +7,7 @@
 
 -- Procedimiento
 
-create or replace procedure usp_egcc_saldo_cuenta
+create or replace procedure eureka.usp_egcc_saldo_cuenta
 ( p_cuenta varchar2, p_saldo out number )
 is
 begin

@@ -1,0 +1,58 @@
+CREATE TABLE ALUMNO(
+   ALUM_ID NUMBER(8) not null,
+   ALUM_DNI VARCHAR(8) not null,
+   ALUM_NOM VARCHAR2(40) not null,
+   ALUM_APE VARCHAR2(40) not null,
+   ALUM_FEC DATE not null,
+   ALUM_DIR VARCHAR2(80) not null,
+   ALUM_TEL VARCHAR2(80) not null,
+   ALUM_COR VARCHAR(80) not null,
+   PRIMARY KEY (ALUM_ID)
+);
+
+CREATE TABLE PROFESOR(
+   PROF_ID NUMBER(8) not null,
+   PROF_DNI VARCHAR(8) not null,
+   PROF_NOM VARCHAR2(40) not null,
+   PROF_APE VARCHAR2(40) not null,
+   PROF_FEC DATE not null,
+   PROF_DIR VARCHAR2(80) not null,
+   PROF_TEL VARCHAR2(80) not null,
+   PROF_COR VARCHAR(80) not null,
+   CURS_ID NUMBER(8) not null,
+   PRIMARY KEY (PROF_ID)
+);
+
+CREATE TABLE CURSO(
+   CURS_ID NUMBER(8) not null,
+   CURS_NOM VARCHAR2(20) not null,
+   FECH_INI DATE not null,
+   FECH_FIN DATE not null,
+   CURS_DIA VARCHAR2(50) not null,
+   CURS_HOR VARCHAR2(20) not null,
+   PRIMARY KEY (CURS_ID)
+);
+
+CREATE TABLE NOTA(
+    NOTA_ID NUMBER(8) not null,
+    ALUM_ID NUMBER(8) not null,
+    CURS_ID NUMBER(8) not null,
+    NOTA_PROM NUMBER(2) not null,
+    NOTA_EST char(1) not null,
+    PRIMARY KEY (NOTA_ID)
+);
+
+alter table PROFESOR
+add constraint FK_PROFESOR_CURS_ID
+foreign key (CURS_ID)
+references CURSO(CURS_ID);
+
+alter table NOTA
+add constraint FK_NOTA_ALUM_ID
+foreign key (ALUM_ID)
+references ALUMNO(ALUM_ID);
+
+alter table NOTA
+add constraint FK_NOTA_CURS_ID
+foreign key (CURS_ID)
+references CURSO(CURS_ID);
