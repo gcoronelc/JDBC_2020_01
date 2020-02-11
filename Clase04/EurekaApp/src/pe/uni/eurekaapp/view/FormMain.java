@@ -51,6 +51,7 @@ public class FormMain extends javax.swing.JFrame {
     menuConsulta = new javax.swing.JMenu();
     menuConsultaMovimientos = new javax.swing.JMenuItem();
     menuReporte = new javax.swing.JMenu();
+    menuReporteMovimientos = new javax.swing.JMenuItem();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,6 +96,15 @@ public class FormMain extends javax.swing.JFrame {
     menuBar.add(menuConsulta);
 
     menuReporte.setText("Reporte");
+
+    menuReporteMovimientos.setText("Movimientos");
+    menuReporteMovimientos.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        menuReporteMovimientosActionPerformed(evt);
+      }
+    });
+    menuReporte.add(menuReporteMovimientos);
+
     menuBar.add(menuReporte);
 
     setJMenuBar(menuBar);
@@ -124,6 +134,10 @@ public class FormMain extends javax.swing.JFrame {
   private void menuProcesoDepositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuProcesoDepositoActionPerformed
      cargarFormulario(ProcDepositoView.class);
   }//GEN-LAST:event_menuProcesoDepositoActionPerformed
+
+  private void menuReporteMovimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuReporteMovimientosActionPerformed
+		cargarFormulario(RepoMovimientosView.class);
+  }//GEN-LAST:event_menuReporteMovimientosActionPerformed
 
 	/**
 	 * @param args the command line arguments
@@ -170,6 +184,7 @@ public class FormMain extends javax.swing.JFrame {
   private javax.swing.JMenu menuProceso;
   private javax.swing.JMenuItem menuProcesoDeposito;
   private javax.swing.JMenu menuReporte;
+  private javax.swing.JMenuItem menuReporteMovimientos;
   private javax.swing.JMenu menuTabla;
   // End of variables declaration//GEN-END:variables
 

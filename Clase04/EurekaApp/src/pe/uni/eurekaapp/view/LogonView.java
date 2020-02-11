@@ -5,9 +5,7 @@
  */
 package pe.uni.eurekaapp.view;
 
-import javax.swing.JOptionPane;
 import pe.uni.eurekaapp.controller.LogonController;
-import pe.uni.eurekaapp.model.EmpleadoModel;
 import pe.uni.eurekaapp.util.Mensaje;
 
 /**

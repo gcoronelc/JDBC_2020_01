@@ -14,8 +14,8 @@ public class Prueba07 {
   
   public static void main(String[] args) {
     try {
-      String cuenta = "00100001";
-			double importe = 100;
+      String cuenta = "00200001";
+			double importe = 5870;
       CuentaServiceEspec service;
       service = new CuentaServiceImpl();
       

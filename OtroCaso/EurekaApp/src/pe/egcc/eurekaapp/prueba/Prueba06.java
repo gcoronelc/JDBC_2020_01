@@ -1,10 +1,6 @@
 package pe.egcc.eurekaapp.prueba;
 
-import java.util.List;
-import pe.egcc.eurekaapp.domain.Combo;
-import pe.egcc.eurekaapp.service.espec.ComboServiceEspec;
 import pe.egcc.eurekaapp.service.espec.CuentaServiceEspec;
-import pe.egcc.eurekaapp.service.impl.ComboServiceImpl;
 import pe.egcc.eurekaapp.service.impl.CuentaServiceImpl;
 
 /**

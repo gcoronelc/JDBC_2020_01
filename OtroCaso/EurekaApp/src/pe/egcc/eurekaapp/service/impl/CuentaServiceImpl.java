@@ -163,8 +163,8 @@ public class CuentaServiceImpl implements CuentaServiceEspec {
       cn.setAutoCommit(false);
       // Leer datos de la cuenta
       String sql = "select DEC_CUENSALDO, INT_CUENCONTMOV "
-              + "from cuenta where CHR_CUENCODIGO = ? ";
-              //+ "for update wait 5";
+              + "from cuenta where CHR_CUENCODIGO = ? "
+              + "for update";
       PreparedStatement pstm = cn.prepareStatement(sql);
       pstm.setString(1, cuenta);
       ResultSet rs = pstm.executeQuery();
@@ -176,7 +176,7 @@ public class CuentaServiceImpl implements CuentaServiceEspec {
       rs.close();
       pstm.close();
 			// Retardo
-			Thread.currentThread().sleep(2000);
+			Thread.currentThread().sleep(5000);
       // Verificar saldo
       saldo -= importe;
       if (saldo < 0) {
@@ -184,7 +184,8 @@ public class CuentaServiceImpl implements CuentaServiceEspec {
       }
 			// Leer contador
 			sql = "select INT_CUENCONTMOV "
-              + "from cuenta where CHR_CUENCODIGO = ? ";
+              + "from cuenta where CHR_CUENCODIGO = ? "
+							+ " for update ";
 			pstm = cn.prepareStatement(sql);
       pstm.setString(1, cuenta);
       rs = pstm.executeQuery();

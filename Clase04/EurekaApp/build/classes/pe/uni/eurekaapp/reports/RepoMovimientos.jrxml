@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="REPORTE DE MOVIMIENTOS" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="28feadb7-2744-43fd-a65e-309c0b2d0f2b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     V_MOVIMIENTOS."MOVINUMERO" AS MOVINUMERO,
+     V_MOVIMIENTOS."MOVIFECHA" AS MOVIFECHA,
+     V_MOVIMIENTOS."MOVIIMPORTE" AS MOVIIMPORTE,
+     V_MOVIMIENTOS."TIPONOMBRE" AS TIPONOMBRE,
+     V_MOVIMIENTOS."CUENCODIGO" AS CUENCODIGO,
+     V_MOVIMIENTOS."MONENOMBRE" AS MONENOMBRE
+FROM
+     "EUREKA"."V_MOVIMIENTOS" V_MOVIMIENTOS]]>
+	</queryString>
+	<field name="MOVINUMERO" class="java.math.BigDecimal"/>
+	<field name="MOVIFECHA" class="java.sql.Timestamp"/>
+	<field name="MOVIIMPORTE" class="java.math.BigDecimal"/>
+	<field name="TIPONOMBRE" class="java.lang.String"/>
+	<field name="CUENCODIGO" class="java.lang.String"/>
+	<field name="MONENOMBRE" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="106" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="228" height="27" uuid="e8deb2e1-4e25-47de-959f-38549c589538"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[EUREKA BANK]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="128" y="40" width="100" height="20" uuid="4d8c69c3-e59f-4c08-b516-2e3de2406c80"/>
+				<textFieldExpression><![CDATA[$F{CUENCODIGO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="40" width="100" height="20" uuid="34e61e0a-2bf3-4024-ae18-06a1dc1bd9b5"/>
+				<text><![CDATA[CUENTA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="70" width="100" height="20" uuid="f02dc2c9-006b-4174-ac99-dcbc6d42145f"/>
+				<text><![CDATA[MONEDA:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="128" y="70" width="100" height="20" uuid="2accf2b3-12d1-4eef-9066-87166b37a363"/>
+				<textFieldExpression><![CDATA[$F{MONENOMBRE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="56" height="20" uuid="35817e19-6341-4c46-961d-8d402ac272d6"/>
+				<text><![CDATA[N.MOV.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="56" y="0" width="100" height="20" uuid="773590ec-0055-4b09-ab2f-cc219a07cac0"/>
+				<text><![CDATA[MOVIFECHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="156" y="0" width="160" height="20" uuid="914b9ef5-1ad9-4a38-b229-de334dfffa96"/>
+				<text><![CDATA[TIPONOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="316" y="0" width="100" height="20" uuid="39d712b5-e44b-4515-abfb-787da1bd75c1"/>
+				<text><![CDATA[MOVIIMPORTE]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="56" height="20" uuid="3bcd0d83-2c9a-4171-baa4-35df43765d01"/>
+				<textFieldExpression><![CDATA[$F{MOVINUMERO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="56" y="0" width="100" height="20" uuid="b5d4fde3-4a11-4323-8dc5-94b77e8c258b"/>
+				<textFieldExpression><![CDATA[$F{MOVIFECHA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="156" y="0" width="160" height="20" uuid="819475ce-637b-41f7-9e9d-391c1fecde01"/>
+				<textFieldExpression><![CDATA[$F{TIPONOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="316" y="0" width="100" height="20" uuid="18a389d0-8d48-462a-8460-58f5e20c92b8"/>
+				<textFieldExpression><![CDATA[$F{MOVIIMPORTE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
